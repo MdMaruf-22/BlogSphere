@@ -1,6 +1,6 @@
 <?php
-include "./includes/db.php";
-include "./includes/header.php";
+include "includes/db.php";
+include "includes/header.php";
 
 if (isset($_GET['id'])) {
     $post_id = intval($_GET['id']);

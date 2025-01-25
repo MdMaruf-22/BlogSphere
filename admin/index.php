@@ -1,12 +1,12 @@
 <?php 
 
-include "./includes/db.php" ;
+include "includes/db.php" ;
 
-include "./includes/header.php";
+include "includes/header.php";
 
 
 
-if(isset($_SESSION['email']) && !empty($_SESSION['email']))
+if(isset($_SESSION['admin_email']) && !empty($_SESSION['admin_email']))
 {
 
 ?>
@@ -18,6 +18,9 @@ if(isset($_SESSION['email']) && !empty($_SESSION['email']))
                 <ul>
                     <li>
                         <a href="" class="nav-item">All Post</a>
+                    </li>
+                    <li>
+                        <a href="view_category.php" class="nav-item">Category</a>
                     </li>
                 </ul>
             </div>

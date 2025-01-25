@@ -5,9 +5,6 @@ include "./includes/db.php";
 include "./includes/header.php";
 
 
-
-
-
 ?>
 
 
@@ -18,7 +15,10 @@ include "./includes/header.php";
             <?php
             $category_id = $_GET['category_id'];
 
-            $sql = "SELECT posts.*, users.name as user_name, categories.category FROM posts JOIN users ON posts.user_id=users.user_id JOIN categories ON posts.category_id=categories.category_id WHERE posts.category_id=" . $category_id;
+            $sql = "SELECT posts.*, users.name as user_name, categories.category 
+            FROM posts JOIN users ON posts.user_id=users.user_id 
+            JOIN categories ON posts.category_id=categories.category_id 
+            WHERE posts.category_id= $category_id AND posts.status = 'Approved'" ;
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {

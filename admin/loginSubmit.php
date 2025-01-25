@@ -1,6 +1,6 @@
 <?php 
 
-include "./includes/db.php" ;
+include "includes/db.php" ;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -12,8 +12,9 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 
         session_start();
-        $_SESSION['email'] = $email;
-        $_SESSION['user_id'] = $row['user_id'];
+        $_SESSION['admin_email'] = $email;
+        $_SESSION['admin_id'] = $row['user_id'];
+        // $_SESSION['role'] = 'admin';
 
         header("location: index.php");
     }

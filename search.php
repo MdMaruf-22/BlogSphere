@@ -11,7 +11,7 @@ include "./includes/header.php";
 
         <?php
             $search = $_GET['search'] ?? '';
-            $search_terms = explode(' ', $search); // Split the search into individual words
+            $search_terms = explode(' ', $search);
 
             $query_conditions = [];
             foreach ($search_terms as $term) {

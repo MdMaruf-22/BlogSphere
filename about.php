@@ -6,7 +6,7 @@ include "./includes/header.php";
 
 
 
-if(isset($_SESSION['email']) && !empty($_SESSION['email']))
+if(isset($_SESSION['user_email']) && !empty($_SESSION['user_email']))
 {
 
 ?>

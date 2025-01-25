@@ -1,20 +1,19 @@
 <?php
-include "./includes/db.php"; // Include the database connection
+include "./includes/db.php"; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Get form data
+
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
 
-    // Check if passwords match
+
     if ($password !== $confirm_password) {
         echo "<script>alert('Passwords do not match!'); window.location.href='register.php';</script>";
         exit();
     }
 
-    // Check if the email already exists
     $check_email_query = "SELECT * FROM users WHERE email = '$email'";
     $result = mysqli_query($conn, $check_email_query);
 
@@ -23,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    // Insert data into the database without hashing the password
     $query = "INSERT INTO users (name, email, password, join_date) VALUES ('$name', '$email', '$password', NOW())";
 
     if (mysqli_query($conn, $query)) {

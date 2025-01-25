@@ -33,7 +33,7 @@
 
                         session_start();
 
-                        if(isset($_SESSION['email']) && !empty($_SESSION['email']))
+                        if(isset($_SESSION['admin_email']) && !empty($_SESSION['admin_email']))
                         {
 
                     ?>

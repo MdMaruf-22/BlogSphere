@@ -12,9 +12,10 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 
         session_start();
-        $_SESSION['email'] = $email;
+        $_SESSION['user_email'] = $email;
         $_SESSION['user_id'] = $row['user_id'];
-
+        // $_SESSION['role'] = 'user';
+        
         header("location: index.php");
     }
 }
