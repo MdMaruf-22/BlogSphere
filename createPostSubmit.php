@@ -40,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $imageDestination = 'images/blogs/' . $imageNewName; 
 
         if (move_uploaded_file($imageTmpName, $imageDestination)) {
-            $query = "INSERT INTO posts (title, details, date_time, category_id, user_id, image) 
-                      VALUES ('$title', '$details', NOW(), '$category_id', '$user_id', '$imageNewName')";
+            $query = "INSERT INTO posts (title, details, date_time, category_id, user_id, image,status) 
+                      VALUES ('$title', '$details', NOW(), '$category_id', '$user_id', '$imageNewName','pending')";
 
             if (mysqli_query($conn, $query)) {
                 echo "<script>alert('Post created successfully!'); window.location.href='index.php';</script>";

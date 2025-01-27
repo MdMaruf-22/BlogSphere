@@ -22,7 +22,7 @@ if (isset($_SESSION['admin_email']) && !empty($_SESSION['admin_email'])) {
             </div>
 
             <div class="col-md-10">
-                <!-- Button to Create New Category -->
+                
                 <div class="mb-3">
                     <a href="add_category.php" class="btn btn-success">Create New Category</a>
                 </div>

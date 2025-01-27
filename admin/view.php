@@ -23,6 +23,62 @@ if (isset($_GET['post_id'])) {
             <p class="text-muted mt-4"><strong>Category:</strong> <?php echo htmlspecialchars($post['category']); ?></p>
             <p class="text-muted"><strong>Posted by:</strong> <?php echo htmlspecialchars($post['user_name']); ?></p>
             <p class="text-muted"><strong>Date:</strong> <?php echo htmlspecialchars($post['date_time']); ?></p>
+
+            <div class="mt-4">
+                <h3>Likes:</h3>
+                <?php
+                $likes_query = "SELECT users.name FROM likes 
+                                JOIN users ON likes.user_id = users.user_id 
+                                WHERE likes.post_id = $post_id";
+                $likes_result = $conn->query($likes_query);
+
+                if ($likes_result->num_rows > 0) {
+                    while ($like = $likes_result->fetch_assoc()) {
+                        echo '<p class="mb-1"><i class="fa-regular fa-user"></i> ' . htmlspecialchars($like['name']) . '</p>';
+                    }
+                } else {
+                    echo '<p>No likes yet.</p>';
+                }
+                ?>
+            </div>
+
+            <div class="mt-4">
+                <h3>Comments:</h3>
+                <?php
+                $comments_query = "SELECT comments.comment_id, comments.comment_text, comments.date_time, users.name, users.user_id AS commenter_id 
+                                   FROM comments 
+                                   JOIN users ON comments.user_id = users.user_id 
+                                   WHERE comments.post_id = $post_id 
+                                   ORDER BY comments.date_time DESC";
+                $comments_result = $conn->query($comments_query);
+
+                if ($comments_result->num_rows > 0) {
+                    while ($comment = $comments_result->fetch_assoc()) {
+                        echo '<div class="mb-2 p-3 border rounded bg-light">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <strong>' . htmlspecialchars($comment['name']) . ':</strong>
+                                        <p>' . htmlspecialchars($comment['comment_text']) . '</p>
+                                    </div>
+                                    <div class="text-muted small">
+                                        <p><i class="fa-regular fa-clock"></i> ' . htmlspecialchars($comment['date_time']) . '</p>
+                                    </div>
+                                </div>';
+
+                        
+                        echo '<form action="delete_comment.php" method="POST" class="d-inline">
+                                <input type="hidden" name="comment_id" value="' . $comment['comment_id'] . '">
+                                <input type="hidden" name="post_id" value="' . $post_id . '">
+                                <button type="submit" class="btn btn-danger btn-sm mt-2">Delete</button>
+                              </form>';
+
+                        echo '</div>';
+                    }
+                } else {
+                    echo '<p>No comments yet.</p>';
+                }
+                ?>
+            </div>
         </div>
         <?php
     } else {

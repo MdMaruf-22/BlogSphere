@@ -58,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <select name="category_id" class="form-control" id="category_id" required>
                 <option value="1" <?= ($post['category_id'] == 1) ? 'selected' : '' ?>>Web Development</option>
                 <option value="2" <?= ($post['category_id'] == 2) ? 'selected' : '' ?>>Tech News</option>
-                <!-- Add more categories as needed -->
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Update Post</button>

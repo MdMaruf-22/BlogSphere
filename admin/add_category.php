@@ -1,9 +1,8 @@
-<?php
+<?php 
 include "includes/db.php";
 include "includes/header.php";
 
 if (isset($_SESSION['admin_email']) && !empty($_SESSION['admin_email'])) {
-    // Handle form submission
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $category_name = trim($_POST['category_name']);
 
@@ -25,12 +24,22 @@ if (isset($_SESSION['admin_email']) && !empty($_SESSION['admin_email'])) {
     }
 ?>
 
-    <div class="container mt-5">
+    <div class="container mt-3">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-2">
+                <ul>
+                    <li>
+                        <a href="" class="nav-item">All Post</a>
+                    </li>
+                    <li>
+                        <a href="view_category.php" class="nav-item">Category</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-10">
                 <h2 class="mb-4">Create New Category</h2>
 
-                <!-- Display success or error messages -->
                 <?php if (isset($success_message)) : ?>
                     <div class="alert alert-success"><?= htmlspecialchars($success_message); ?></div>
                 <?php endif; ?>
@@ -38,7 +47,6 @@ if (isset($_SESSION['admin_email']) && !empty($_SESSION['admin_email'])) {
                     <div class="alert alert-danger"><?= htmlspecialchars($error_message); ?></div>
                 <?php endif; ?>
 
-                <!-- Form to create a new category -->
                 <form method="POST" action="">
                     <div class="form-group mb-3">
                         <label for="category_name">Category Name</label>
@@ -51,6 +59,7 @@ if (isset($_SESSION['admin_email']) && !empty($_SESSION['admin_email'])) {
                 </form>
                 <br><br>
             </div>
+
         </div>
     </div>
 
@@ -59,5 +68,5 @@ if (isset($_SESSION['admin_email']) && !empty($_SESSION['admin_email'])) {
     header("location: login.php");
 }
 
-include "includes/footer.php";
+include('./includes/footer.php'); 
 ?>
