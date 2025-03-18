@@ -67,8 +67,6 @@ I welcome contributions to this project! To contribute, please follow these step
     ```
 5. Open a pull request to the main repository with a description of your changes.
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## About the Creator
 Hello! I'm Mohammed Maruf Islam. I created this project while learning PHP as part of the EDGE course. This project is a part of my journey in Software Engineering at Noakhali Science and Technology University.
