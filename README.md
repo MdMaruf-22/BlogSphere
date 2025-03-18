@@ -51,7 +51,7 @@ d:/xampp/htdocs/edge_course/
 ```
 
 ## Contributor Guidelines
-We welcome contributions to this project! To contribute, please follow these steps:
+I welcome contributions to this project! To contribute, please follow these steps:
 1. Fork the repository.
 2. Create a new branch for your feature or bugfix:
     ```sh
