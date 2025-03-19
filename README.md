@@ -1,4 +1,4 @@
-# Project Title: Edge Blog
+# Project Title: BlogSphere
 
 ## Description
 This project is a web application that allows users to create, edit, and delete posts. Users can also comment on posts, like posts, and search for posts. The application includes an admin panel for managing categories, posts, and comments.
